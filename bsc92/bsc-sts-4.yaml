@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bsc92-sts-4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bsc924
+  serviceName: bsc92-svc4
+  template:
+    metadata:
+      labels:
+        app: bsc924
+    spec:
+      #hostNetwork: true
+      imagePullSecrets:
+      - name: registry-secret
+      containers:
+      - name: bsc
+        image: octahub.8lab.cn:5000/99/bsc:v0907
+        imagePullPolicy: Always
+        args: 
+        - --allow-insecure-unlock
+        env:
+        - name: BOOTIP
+          value: "bsc92-sts-1-0.bsc-headless-svc"
+        - name: chainId
+          value: "202109071619"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: polygon
+                operator: In
+                values:
+                - polygon4

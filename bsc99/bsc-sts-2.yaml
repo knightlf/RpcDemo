@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bsc99-sts-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bsc992
+  serviceName: bsc99-svc2
+  template:
+    metadata:
+      labels:
+        app: bsc992
+    spec:
+      #hostNetwork: true
+      imagePullSecrets:
+      - name: registry-secret
+      containers:
+      - name: bsc
+        image: octahub.8lab.cn:5000/99/bsc:v0907
+        imagePullPolicy: Always
+        args: 
+        - --allow-insecure-unlock
+        env:
+        - name: BOOTIP
+          value: "bsc99-sts-1-0.bsc-headless-svc"
+        - name: chainId
+          value: "202109071619"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: bsc
+                operator: In
+                values:
+                - bsc2
