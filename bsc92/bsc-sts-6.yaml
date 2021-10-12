@@ -25,7 +25,7 @@ spec:
         - --allow-insecure-unlock
         env:
         - name: BOOTIP
-          value: "bsc92-sts-1-0.bsc-headless-svc"
+          value: "bsc92-sts-1-0.bsc92-headless-svc"
         - name: chainId
           value: "202109071619"
       affinity:

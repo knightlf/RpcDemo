@@ -122,7 +122,7 @@ if __name__ == '__main__':
     # 注册start all bsc nodes
     server.register_function(AddBscAll, "AddBscAll")
     # 注册remove all bsc nodes
-    server.register_function(AddBscAll, "DelBscAll")
+    server.register_function(DelBscAll, "DelBscAll")
 
     print("Listening for Client")
     # 保持等待调用状态

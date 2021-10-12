@@ -54,7 +54,7 @@ class OpsNodes():
             sts = self.stsnode99
         else:
             return "type input err!"
-        cmd = "kubectl apply -f  " + sts + "bsc-sts-" + id + ".yaml"
+        cmd = "kubectl delete -f  " + sts + "bsc-sts-" + id + ".yaml"
         result = subprocess.run(cmd, shell=True, timeout=30,
                                 stderr=subprocess.PIPE,
                                 stdout=subprocess.PIPE)
