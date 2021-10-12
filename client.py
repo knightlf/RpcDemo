@@ -13,7 +13,7 @@ import xmlrpc.client
 #     delbsc92_res = server.DelBscNode("1", "bsc92")
 #     print(delbsc92_res)
 #     # 建立bsc慢链
-#     addbsc92_res = server.AddBscNode("bsc92")
+#     addbsc92_res = server.AddBscAll("bsc92")
 #     print(addbsc92_res)
 #     # 删除bsc快链
 #     delbsc99_res = server.DelBscAll("bsc99")
@@ -30,14 +30,23 @@ if __name__ == '__main__':
     # print(logs_res)
     # print("*" * 100)
     # # 参数为要执行的交易节点，node:  1-6
-    transaction_res = server.Transaction("1", "bsc92")
+    #transaction_res = server.Transaction("1", "bsc92")
     # # if res.returncode!=0:
     # #     res = "node exec faild!"
     # #     print(res)
-    print(transaction_res)
+    #print(transaction_res)
 
-    delbsc92_res = server.DelBscAll("bsc92")
-    print(delbsc92_res)
+    # delbsc92_res = server.DelBscAll("bsc92")
+    # print(delbsc92_res)
+
+    # addbsc92_res = server.AddBscAll("bsc92")
+    # print(addbsc92_res)
 
     # delbsc92_res = server.DelBscNode("1", "bsc92")
     # print(delbsc92_res)
+
+    # delbsc92_res = server.DelBscNode("2", "bsc92")
+    # print(delbsc92_res)
+
+    addbsc92_res = server.AddBscNode("2", "bsc99")
+    print(addbsc92_res)

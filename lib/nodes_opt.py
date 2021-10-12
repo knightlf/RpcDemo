@@ -17,6 +17,7 @@ class OpsNodes():
         else:
             return "type input err!"
         cmd = "kubectl apply -f  " + sts + "bsc-sts-" + id + ".yaml"
+        print(cmd)
         result = subprocess.run(cmd, shell=True, timeout=30,
                                 stderr=subprocess.PIPE,
                                 stdout=subprocess.PIPE)
@@ -36,6 +37,7 @@ class OpsNodes():
         else:
             return "type input err!"
         cmd = "kubectl apply -f  %s" % sts
+        print(cmd)
         result = subprocess.run(cmd, shell=True, timeout=30,
                                 stderr=subprocess.PIPE,
                                 stdout=subprocess.PIPE)
@@ -55,6 +57,7 @@ class OpsNodes():
         else:
             return "type input err!"
         cmd = "kubectl delete -f  " + sts + "bsc-sts-" + id + ".yaml"
+        print(cmd)
         result = subprocess.run(cmd, shell=True, timeout=30,
                                 stderr=subprocess.PIPE,
                                 stdout=subprocess.PIPE)
@@ -74,6 +77,7 @@ class OpsNodes():
         else:
             return "type input err!"
         cmd = "kubectl delete -f  %s" % sts
+        print(cmd)
         result = subprocess.run(cmd, shell=True, timeout=30,
                                 stderr=subprocess.PIPE,
                                 stdout=subprocess.PIPE)
